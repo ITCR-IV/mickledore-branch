@@ -14,9 +14,16 @@ iface wlan0 inet dhcp
 iface atml0 inet dhcp
 
 # Wired or wireless interfaces
+# iface eth0 inet dhcp
+# iface eth1 inet dhcp
+
 auto eth0
-iface eth0 inet dhcp
-iface eth1 inet dhcp
+
+iface eth0 inet static
+    pre-up sleep 2
+    address 192.168.100.69
+    netmask 255.255.255.0
+    gateway 192.168.1.1
 
 # Ethernet/RNDIS gadget (g_ether)
 # ... or on host side, usbnet and random hwaddr
